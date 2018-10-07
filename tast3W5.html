@@ -1,0 +1,181 @@
+<html>
+<head>
+<style>
+ body{
+   width:100%;
+   background-image: url(http://backgroundlabs.com/wp-content/uploads/2013/04/subtle-mosaic-pattern.png);
+   background-repeat: repeat;
+
+ }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width:560px;
+  margin:0px auto;
+  background: white;
+}
+nav {
+ 
+  display: flex;
+  
+}
+   
+   nav > a{
+     
+     
+     display: inline-flex;
+     justify-content: center;
+     flex-basis: 25%;
+     text-decoration: none;
+     color: black;
+     font-size: 20px;
+     
+   }
+    
+    nav > a.active{
+      background: red;
+      color:white;
+      text-align: center;
+    }
+     
+     .logo_part{
+       display: flex;
+     }
+     .search{
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       width:auto;
+       flex-grow:1;
+     }
+     
+     section,section >div{
+       width:100%;
+       padding-top: 4px;
+       padding-bottom: 8px;
+
+     }
+     section > div{
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-around;
+     }
+     .card{
+       display: inline-flex;
+       flex-direction: column;
+       width:150px;
+       border:1px solid red;
+       border-radius: 8px;
+       margin-bottom: 8px;
+     }
+     .card a, .card .price{
+       padding: 4px;
+       text-align: center;
+
+     }   
+       .card a{
+           color: white;
+           background: blue;
+           text-decoration: none;
+
+     }
+     footer{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       width: 100%;
+       height:64px;
+       color:white;
+       background: black;
+   }
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <nav>
+    <a href="#" class='active'>Home</a><a href="#">Contacts</a><a href="#">About us</a><a href="#">Comitee</a>
+  </nav>
+  <div class="logo_part">
+     <img src="http://via.placeholder.com/200x100"/>
+     <div class="search">
+       <input type="text"/>
+       <button>Search</button>
+     </div>
+  </div>
+</header>
+
+<section class="main_section">
+  <div class="cards">
+    <div class="card">
+      <a href="#" class="title">Toyota Avensis</a>
+        <img src="http://via.placeholder.com/150x150"/>
+      <div class="description">
+      
+      </div>
+      <div class="price">
+        50.000$
+      </div>
+    </div>
+        <div class="card">
+       <a href="#" class="title">Toyota Avensis</a>
+        <img src="http://via.placeholder.com/150x150"/>
+      <div class="description">
+      
+      </div>
+      <div class="price">
+        50.000$
+      </div>
+    </div>
+        <div class="card">
+      <a href="#" class="title">Toyota Avensis</a>
+        <img src="http://via.placeholder.com/150x150"/>
+      <div class="description">
+      
+      </div>
+      <div class="price">
+        50.000$
+      </div>
+    </div>
+    <div class="card">
+      <a href="#" class="title">Toyota Avensis</a>
+        <img src="http://via.placeholder.com/150x150"/>
+      <div class="description">
+      
+      </div>
+      <div class="price">
+        50.000$
+      </div>
+    </div>
+        <div class="card">
+      <a href="#" class="title">Toyota Avensis</a>
+        <img src="http://via.placeholder.com/150x150"/>
+      <div class="description">
+      
+      </div>
+      <div class="price">
+        50.000$
+      </div>
+    </div>
+     <div class="card">
+      <a href="#" class="title">Toyota Avensis</a>
+        <img src="http://via.placeholder.com/150x150"/>
+      <div class="description">
+      
+      </div>
+      <div class="price">
+        50.000$
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  @copy; 2017 Wheels.kz. All cars
+</footer>
+</div>
+</html>
