@@ -1,32 +1,161 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <link rel="stylesheet" href="style3.css">
-    <script src="script3.js" defer></script>
-  </head>
+<head>
+    <style>
+        .overlay {
+    position: absolute; 
+    z-index: ;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0, 0.6)
+}
+.alert {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    background-color: white;
+    text-align: center;
+    border: 2px red solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+header > nav > a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid white;
+}
 
-  <body>
-    <div>
-      <table id="students" border="1" cellpadding="0" cellspacing="0">
-        <tr><td>John</td><td>Samuel</td><td><strong>Engineering</strong></td></tr>
-        <tr><td>Sam</td><td>Micheal</td><td><strong>Engineering</strong></td></tr>
-        <tr><td>Tim</td><td>Bernes</td><td><strong>Philology</strong></td></tr>
-      </table>
-      <br/>
-      <br/>
-      <input id="name" type="text" placeholder="Enter your name"/><br/>
-      <input id="surname" type="text" placeholder="Enter your surname"/><br/>
-      <select id="faculty">
-        <option value="-1">Select Faculty</option>
-        <option>Philology</option>
-        <option>Engineering</option>
-        <option>Economy</option>
-        <option>Law</option>
-      </select><br/>
-      <button id="addStudent">Add Student</button>
-      
+header > nav {
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    
+}
+section {
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50%;
+}
+body {
+    margin: auto;    
+}
+.card {
+    border: 1px blue solid;
+    margin: 10px;
+    border-radius: 5px;
+    height: 200px;
+    display: inline-block;
+}
+.price {
+    position: relative;
+    left: 5px;
+    top: 10px;
+    text-align: center;
+}
+.title {
+    position: relative;
+    left: 0px;
+    top: -172px;
+    background-color: blue;
+    color: white;
+    width: max-content;
+    max-width: 110px;
+    padding: 2px;
+}
+.card > a > img {
+    background-color: white;
+    
+}
+.card > a {
+    
+    background-color: white;
+    position: relative;
+    left: 115px;
+    top: -190px; 
+}
+    
+    </style>
+</head>
+
+<body>
+    <div class  ="overlay">
+        <div class="alert">
+            <h1>Welcome to Wheels.kz</h1>
+            <p>If you have any questions, please contact us by no: 87479028100</p>
+            <p>The best cars with the best prices are present on our website and application</p>
+        </div>
     </div>
-  </body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Prices</a>
+            <a href="#">Contacts</a>
+            <a href="#">Opportunities</a>
+        </nav>
+    </header>
+    <section>
+        <div class="card first">
+            <img src="http://via.placeholder.com/150x150" />
+            <div class="price">10.000 $</div>
+            <div class="title">BMW X6</div>
+            <a href="#">
+                <img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png" />
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="http://via.placeholder.com/150x150" />
+            <div class="price">10.000 $</div>
+            <div class="title">Mercedes C100</div>
+            <a href="#">
+                <img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png" />
+            </a>
+        </div>
+
+
+        <div class="card">
+            <img src="http://via.placeholder.com/150x150" />
+            <div class="price">10.000 $</div>
+            <div class="title">BMW X5</div>
+            <a href="#">
+                <img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png" />
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="http://via.placeholder.com/150x150" />
+            <div class="price">10.000 $</div>
+            <div class="title">Mitsibushi</div>
+            <a href="#">
+                <img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png" />
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="http://via.placeholder.com/150x150" />
+            <div class="price">10.000 $</div>
+            <div class="title">Audi A8</div>
+            <a href="#">
+                <img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png" />
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="http://via.placeholder.com/150x150" />
+            <div class="price">10.000 $</div>
+            <div class="title">BMW X6</div>
+            <a href="#">
+                <img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png" />
+            </a>
+        </div>
+    </section>
+</body>
 
 </html>
