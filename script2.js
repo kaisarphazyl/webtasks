@@ -1,24 +1,52 @@
-let countries = ["Kazakhstan","Russia","England","France"];
-let cities = {"Kazakhstan":["Almaty","Astana","Karagandy"],"Russia":["Moscow","Saint-Petersburg","Kazan"],"England":["London","Manchester","Liverpool"],"France":["Paris","Lyon","Marseille"]};
-let countriesWEX = document.querySelector("#countries");
-let citiesWEX = document.querySelector("#cities");
+var url = "http://demo4296963.mockable.io/listCars";
+var loadingButton = document.querySelector("button");
+var img = document.querySelector("#loading");
+var arrayOfCards;
+var cardsDiv = document.querySelector("#cards");
 
-for (let i = 0; i < countries.length; i++) {
-    let option = document.createElement("option");
-    option.text = countries[i];
-    countriesWEX.add(option);
+function onStreamProceed(text) {
+  console.log(text);
+  arrayOfCards = new Array();
+  arrayOfCards = JSON.parse("[" + text + "]")[0];
+  console.log(arrayOfCards);
+  
+  var cards = document.querySelector("#cards");
+  arrayOfCards.forEach(element => {
+    var card = document.createElement("div");
+    var title = document.createElement("p");
+    var price = document.createElement("p");
+
+    title.innerHTML = element.maker + " " + element.model;
+    price.innerHTML = element.price;
+
+    title.classList.add("title");
+    price.classList.add("price");
+
+    card.appendChild(title);
+    card.appendChild(price);
+
+    card.classList.add("card");
+
+    cards.appendChild(card);
+  });
+  console.log();
+  img.style = "";
+  loadingButton.textContent = "Loaded";
 }
 
-let whichCountry;
-countriesWEX.addEventListener("change", function(e) {
-    whichCountry = e.currentTarget.value;
-    let options = citiesWEX.querySelectorAll("option");
-    for (let i = 0; i < options.length; i++) {
-        options[i].remove();
-    }
-    for (let i = 0; i < cities[whichCountry].length; i++) {
-        let option = document.createElement("option");
-        option.text = cities[whichCountry][i];
-        citiesWEX.add(option);
-    }
-}) 
+function onSuccess(response) {
+  console.log(response.status);
+  
+  response.text().then(onStreamProceed);
+}
+function onFail(error) {
+  console.log("Error " + error);
+  loadingButton.textContent = "Some error has occur";
+}
+
+loadingButton.addEventListener("click", function(e) {
+  loadingButton.textContent = "Loading...";
+  img.style = "display: block"
+
+  fetch(url).then(onSuccess, onFail)
+});

@@ -3,39 +3,44 @@
 
   <head>
     <style>
-		#cars{
-			display: flex;
-		}
-		img {
-			width: 300px;
-		}
-		.card{
-		  position:relative;
-			width:300px;
-			margin:5px;
-			vertical-align: top;
-		}
-		.card .basket{
-			width: 64px;
-		  background-color:white;
-		  position:absolute;
-		  right:5px;
-		  top:5px;
-		  z-index:9;
-		}
-		#insideBasket{
-		  border:1px solid red;
-		  text-align:center;
-		}
-	</style>
-    <script src="script3.js" defer></script>
+      #cards .card{
+        border:1px solid red;
+        display:flex;
+        width:300px;
+      }
+      #cards .card .title{
+        flex-grow: 1;
+      }
+      #cards .card .price{
+        font-weight: bold;
+        padding-right: 20px;
+      }
+      #loading{
+        display: none;
+      }
+      #cards{
+        width:300px;
+        height:200px;
+        border: 1px solid blue;
+      }
+    </style>
+
   </head>
 
   <body>
-    <div id="insideBasket"><span id="items">0</span> items, total: <span id="sum">0</span>$</div>
-    <div id="cars">
-      
+    <button>Load</button>
+    <div>
+      <button id="sortByMaker">Sort by maker</button>
+      <button id="sortByPrice">Sort by price</button>
     </div>
+    <div id="cards">
+      <img width="300px" height="200px" id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+    </div>
+
+
+    <script defer>
+	/* Write your code here */
+    </script>
   </body>
 
 </html>
