@@ -1,60 +1,64 @@
 <?php
-$usernames = ["billgates","johndoe","stevejobs"];
-$success = true;
-if (isset($_POST["username"])) {
-    $username = $_POST["username"];
-    $key = in_array($username, $usernames);
-    if ($username == "") {
-        print '<p class="error">Username should not be empty<p>';
-    }
-    if ($key) {
-        print '<p class="error">' . "Username $username is already reserved";
-        $success = false;
-    }
-}
-if (isset($_POST["password"]) && isset($_POST["confPassword"])) {
-    $password = $_POST["password"];
-    $confPassword = $_POST["confPassword"];
-    if ($password == "" || $confPassword == "") {
-        print '<p class="error">Password and Confirm password should not be empty<p>';
-        $success = false;
-    }
-    else if ($password != $confPassword) {
-        print '<p class="error">Password and Confirm password is not equal<p>';
-        $success = false;
-    }
-}
-?>
-<html>
+         $dbhost = 'localhost';
+         $dbuser = 'root';
+         $dbpass = '';
+         $db = 'webtasks';
+         $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $db);
+   
+         if(! $conn ){
+            die('Could not connect: ' . mysqli_error());
+         }
+    $sql = "SELECT * FROM cars";
+	$result = mysqli_query($conn,$sql);
+    $num = mysqli_num_rows($result);
+        ?>
+<html lang="en">
 <head>
-    <style>
-        .error{
-            border:1px solid red;
-            font-weight:bold;
-            padding:5px;
-            width:400px;
-            margin:4px;
-        }
-    </style>
+<style>
+		.car{
+		  display:flex;
+		  border:1px solid black;
+		  border-radius:5px;
+		  width:250px;
+		  padding:10px;
+		}
+		.title{
+		  font-size:16px;
+		  font-weight:bold;
+		}
+		.attributes .row{
+		  display:flex;
+		}
+		.attributes .row div{
+		  width:50%;
+		}
+		.attributes .row .name{
+		  font-weight:bold;
+		}
+		.car img{
+		  margin-right:10px;
+		}
+	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-    <body>
-    <form action="task1.php" method="post">
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" id="username" 
-                value="<?php if (isset($username) && !$success) {echo $username; if ($success) echo '';}?>"></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td>Confirm Password:</td>
-                <td><input type="password" name="confPassword"></td>
-            </tr>
-        </table>
-        <input type="submit">
-    </form>
+<body>
+    <div class="cars">
+        <?php 
+        for ($i = 0; $i < $num; $i++) {
+            $row = mysqli_fetch_assoc($result);
+            echo "<div class='car'>";
+            echo "<img src='" . $row['image'] . "' style='width: 100px; height: 60px'>";
+            echo "<div class='right'>";
+            echo "<div class='title'>" .$row['maker']. ' ' .$row['model']. '</div>';
+            echo "<div class='attributes'>";
+            echo "<div class='row'><div class='name'>Price:</div><div>"  .$row['price']. '$</div></div>';
+            echo "<div class='row'><div class='name'>Year:</div><div>" .$row['year']. '</div></div></div></div></div>'; 
+    }
+        mysqli_close($conn);
+        ?>
+    </div>
 </body>
 </html>
