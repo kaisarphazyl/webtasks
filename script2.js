@@ -21,32 +21,3 @@ function onStreamProceed(text) {
 
     title.classList.add("title");
     price.classList.add("price");
-
-    card.appendChild(title);
-    card.appendChild(price);
-
-    card.classList.add("card");
-
-    cards.appendChild(card);
-  });
-  console.log();
-  img.style = "";
-  loadingButton.textContent = "Loaded";
-}
-
-function onSuccess(response) {
-  console.log(response.status);
-  
-  response.text().then(onStreamProceed);
-}
-function onFail(error) {
-  console.log("Error " + error);
-  loadingButton.textContent = "Some error has occur";
-}
-
-loadingButton.addEventListener("click", function(e) {
-  loadingButton.textContent = "Loading...";
-  img.style = "display: block"
-
-  fetch(url).then(onSuccess, onFail)
-});

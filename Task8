@@ -1,0 +1,19 @@
+In this task you have to construct class diiagram for
+your team project. You will show it during practice hour
+with your team. If some of your team members absent, 
+he won't get any point (unless he has permission).
+
+You can see example in file 'diagram.jpg' attached.
+This example is for 'Snake' game. You can see classes
+with some methods and attributes. You should something
+similar, and on practice you will explain it. for ex:
+
+In 'snake' game, we will have several types of Food:
+Temporary (after small amount of time they will disappear),
+LoosingValue (each second value decreases), Moving (type
+of food that moves). To do so, we create interfaces for each
+of types, and one common interface for Food. We create 
+Food using Factory method pattern, which will give us random
+food. ...... .  GameController will work as Facade Pattern.
+Here we create several classes, and in initiateGame method
+we call functions from these classes...
